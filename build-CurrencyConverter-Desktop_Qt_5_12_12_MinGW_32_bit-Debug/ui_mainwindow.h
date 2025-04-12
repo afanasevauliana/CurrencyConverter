@@ -12,8 +12,11 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -23,8 +26,11 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QComboBox *comboBox;
-    QComboBox *comboBox_2;
+    QComboBox *comboBoxFrom;
+    QComboBox *comboBoxTo;
+    QLineEdit *lineEditAmount;
+    QPushButton *pushButtonConvert;
+    QLabel *labelResult;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -32,27 +38,50 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(472, 312);
+        MainWindow->resize(666, 485);
+        MainWindow->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #4CAF50;\n"
+"    border: none;\n"
+"    color: white;\n"
+"    padding: 8px 16px;\n"
+"    font-size: 14px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: #45a049;\n"
+"}"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        comboBox = new QComboBox(centralwidget);
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->setObjectName(QString::fromUtf8("comboBox"));
-        comboBox->setGeometry(QRect(120, 30, 221, 41));
-        comboBox->setStyleSheet(QString::fromUtf8("font: 63 25pt \"Yu Gothic UI Semibold\";"));
-        comboBox_2 = new QComboBox(centralwidget);
-        comboBox_2->addItem(QString());
-        comboBox_2->addItem(QString());
-        comboBox_2->addItem(QString());
-        comboBox_2->setObjectName(QString::fromUtf8("comboBox_2"));
-        comboBox_2->setGeometry(QRect(120, 150, 221, 41));
-        comboBox_2->setStyleSheet(QString::fromUtf8("font: 63 25pt \"Yu Gothic UI Semibold\";"));
+        comboBoxFrom = new QComboBox(centralwidget);
+        comboBoxFrom->addItem(QString());
+        comboBoxFrom->addItem(QString());
+        comboBoxFrom->addItem(QString());
+        comboBoxFrom->addItem(QString());
+        comboBoxFrom->addItem(QString());
+        comboBoxFrom->setObjectName(QString::fromUtf8("comboBoxFrom"));
+        comboBoxFrom->setGeometry(QRect(240, 40, 181, 51));
+        comboBoxFrom->setStyleSheet(QString::fromUtf8("font: 63 25pt \"Yu Gothic UI Semibold\";"));
+        comboBoxTo = new QComboBox(centralwidget);
+        comboBoxTo->addItem(QString());
+        comboBoxTo->addItem(QString());
+        comboBoxTo->addItem(QString());
+        comboBoxTo->addItem(QString());
+        comboBoxTo->addItem(QString());
+        comboBoxTo->setObjectName(QString::fromUtf8("comboBoxTo"));
+        comboBoxTo->setGeometry(QRect(240, 120, 181, 51));
+        comboBoxTo->setStyleSheet(QString::fromUtf8("font: 63 25pt \"Yu Gothic UI Semibold\";"));
+        lineEditAmount = new QLineEdit(centralwidget);
+        lineEditAmount->setObjectName(QString::fromUtf8("lineEditAmount"));
+        lineEditAmount->setGeometry(QRect(270, 190, 113, 22));
+        pushButtonConvert = new QPushButton(centralwidget);
+        pushButtonConvert->setObjectName(QString::fromUtf8("pushButtonConvert"));
+        pushButtonConvert->setGeometry(QRect(260, 230, 141, 28));
+        labelResult = new QLabel(centralwidget);
+        labelResult->setObjectName(QString::fromUtf8("labelResult"));
+        labelResult->setGeometry(QRect(290, 290, 71, 31));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 472, 26));
+        menubar->setGeometry(QRect(0, 0, 666, 26));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -66,14 +95,20 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        comboBox->setItemText(0, QApplication::translate("MainWindow", "QLineEdit", nullptr));
-        comboBox->setItemText(1, QApplication::translate("MainWindow", "QPushButton", nullptr));
-        comboBox->setItemText(2, QApplication::translate("MainWindow", "QLabel", nullptr));
+        comboBoxFrom->setItemText(0, QApplication::translate("MainWindow", "\320\224\320\276\320\273\320\273\320\260\321\200", nullptr));
+        comboBoxFrom->setItemText(1, QApplication::translate("MainWindow", "\320\240\321\203\320\261\320\273\321\214", nullptr));
+        comboBoxFrom->setItemText(2, QApplication::translate("MainWindow", "\320\225\320\262\321\200\320\276", nullptr));
+        comboBoxFrom->setItemText(3, QApplication::translate("MainWindow", "\320\244\321\203\320\275\321\202", nullptr));
+        comboBoxFrom->setItemText(4, QApplication::translate("MainWindow", "\320\244\321\200\320\260\320\275\320\272", nullptr));
 
-        comboBox_2->setItemText(0, QApplication::translate("MainWindow", "QLineEdit", nullptr));
-        comboBox_2->setItemText(1, QApplication::translate("MainWindow", "QPushButton", nullptr));
-        comboBox_2->setItemText(2, QApplication::translate("MainWindow", "QLabel", nullptr));
+        comboBoxTo->setItemText(0, QApplication::translate("MainWindow", "\320\224\320\276\320\273\320\273\320\260\321\200", nullptr));
+        comboBoxTo->setItemText(1, QApplication::translate("MainWindow", "\320\240\321\203\320\261\320\273\321\214", nullptr));
+        comboBoxTo->setItemText(2, QApplication::translate("MainWindow", "\320\225\320\262\321\200\320\276", nullptr));
+        comboBoxTo->setItemText(3, QApplication::translate("MainWindow", "\320\244\321\203\320\275\321\202", nullptr));
+        comboBoxTo->setItemText(4, QApplication::translate("MainWindow", "\320\244\321\200\320\260\320\275\320\272", nullptr));
 
+        pushButtonConvert->setText(QApplication::translate("MainWindow", "\320\232\320\276\320\275\320\262\320\265\321\200\321\202\320\270\321\200\320\276\320\262\320\260\321\202\321\214", nullptr));
+        labelResult->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
     } // retranslateUi
 
 };
