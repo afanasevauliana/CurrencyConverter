@@ -11,6 +11,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->comboBoxTo->addItems({"USD", "EUR", "RUB"});
     connect(ui->pushButtonConvert, &QPushButton::clicked,
             this, &MainWindow::convertCurrency);
+    this->setStyleSheet(
+        "QMainWindow { background-color: #333; }"
+        "QLabel { color: white; }"
+        "QComboBox, QLineEdit { background: #555; color: white; }"
+    );
 }
 
 void MainWindow::convertCurrency()
