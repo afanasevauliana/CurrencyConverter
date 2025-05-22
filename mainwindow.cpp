@@ -6,6 +6,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->comboBoxFrom->addItems({"USD", "EUR", "RUB"});
+    ui->comboBoxTo->addItems({"USD", "EUR", "RUB"});
 }
 
 MainWindow::~MainWindow()
