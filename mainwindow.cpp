@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QPropertyAnimation>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,9 +14,15 @@ MainWindow::MainWindow(QWidget *parent)
             this, &MainWindow::convertCurrency);
     this->setStyleSheet(
         "QMainWindow { background-color: #333; }"
-        "QLabel { color: white; }"
-        "QComboBox, QLineEdit { background: #555; color: white; }"
+        "QLabel, QComboBox, QLineEdit, QPushButton { color: white; }"
+        "QPushButton { background-color: #555; }"
     );
+    QPropertyAnimation *anim = new QPropertyAnimation(ui->pushButtonConvert, "geometry");
+    anim->setDuration(100);
+    anim->setKeyValueAt(0, ui->pushButtonConvert->geometry());
+    anim->setKeyValueAt(0.5, ui->pushButtonConvert->geometry().adjusted(-5, -5, 5, 5));
+    anim->setKeyValueAt(1, ui->pushButtonConvert->geometry());
+    connect(ui->pushButtonConvert, &QPushButton::pressed, [anim]() { anim->start(); });
 }
 
 void MainWindow::convertCurrency()
