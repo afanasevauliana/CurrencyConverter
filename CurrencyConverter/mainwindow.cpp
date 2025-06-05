@@ -7,18 +7,27 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    QMap<QString, QString> currencyMap = {
+        {"Доллар", "USD"},
+        {"Евро", "EUR"},
+        {"Рубль", "RUB"},
+        {"Фунт", "GBP"}
+    };
 
-    // Добавляем валюты
-    ui->comboBoxFrom->addItems({"USD", "EUR", "RUB", "GBP"});
-    ui->comboBoxTo->addItems({"USD", "EUR", "RUB", "GBP"});
-
-    // Подключаем кнопку
+    ui->comboBoxFrom->addItems(currencyMap.keys());
+    ui->comboBoxTo->addItems(currencyMap.keys());
     connect(ui->pushButtonConvert, &QPushButton::clicked, this, &MainWindow::convertCurrency);
 }
 
 void MainWindow::convertCurrency()
 {
-    // Курсы валют (упрощённо)
+    QMap<QString, QString> currencyMap = {
+        {"Доллар", "USD"},
+        {"Евро", "EUR"},
+        {"Рубль", "RUB"},
+        {"Фунт", "GBP"}
+    };
+
     const QMap<QString, double> rates = {
         {"USD", 1.0},
         {"EUR", 0.85},
@@ -26,8 +35,10 @@ void MainWindow::convertCurrency()
         {"GBP", 0.75}
     };
 
-    QString from = ui->comboBoxFrom->currentText();
-    QString to = ui->comboBoxTo->currentText();
+    QString fromText = ui->comboBoxFrom->currentText();
+    QString toText = ui->comboBoxTo->currentText();
+    QString from = currencyMap.value(fromText);
+    QString to = currencyMap.value(toText);
     double amount = ui->lineEditAmount->text().toDouble();
 
     if (amount <= 0) {
@@ -35,10 +46,14 @@ void MainWindow::convertCurrency()
         return;
     }
 
-    // Конвертация через USD как базовую валюту
+    if (!rates.contains(from) || !rates.contains(to)) {
+        ui->labelResult->setText("Ошибка: неизвестная валюта");
+        return;
+    }
+
     double result = amount * rates[from] / rates[to];
 
-    ui->labelResult->setText(QString::number(result, 'f', 2) + " " + to);
+    ui->labelResult->setText(QString::number(result, 'f', 2) + " " + toText);
 }
 
 MainWindow::~MainWindow()

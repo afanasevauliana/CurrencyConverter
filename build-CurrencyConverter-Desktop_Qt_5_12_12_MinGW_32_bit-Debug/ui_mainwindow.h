@@ -71,13 +71,13 @@ public:
         comboBoxTo->setStyleSheet(QString::fromUtf8("font: 63 25pt \"Yu Gothic UI Semibold\";"));
         lineEditAmount = new QLineEdit(centralwidget);
         lineEditAmount->setObjectName(QString::fromUtf8("lineEditAmount"));
-        lineEditAmount->setGeometry(QRect(270, 190, 113, 22));
+        lineEditAmount->setGeometry(QRect(240, 190, 181, 41));
         pushButtonConvert = new QPushButton(centralwidget);
         pushButtonConvert->setObjectName(QString::fromUtf8("pushButtonConvert"));
-        pushButtonConvert->setGeometry(QRect(260, 230, 141, 28));
+        pushButtonConvert->setGeometry(QRect(240, 250, 181, 41));
         labelResult = new QLabel(centralwidget);
         labelResult->setObjectName(QString::fromUtf8("labelResult"));
-        labelResult->setGeometry(QRect(290, 290, 71, 31));
+        labelResult->setGeometry(QRect(260, 310, 141, 41));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));

@@ -105,20 +105,20 @@ QPushButton:hover {
    <widget class="QLineEdit" name="lineEditAmount">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>240</x>
       <y>190</y>
-      <width>113</width>
-      <height>22</height>
+      <width>181</width>
+      <height>41</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButtonConvert">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>230</y>
-      <width>141</width>
-      <height>28</height>
+      <x>240</x>
+      <y>250</y>
+      <width>181</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -128,10 +128,10 @@ QPushButton:hover {
    <widget class="QLabel" name="labelResult">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>290</y>
-      <width>71</width>
-      <height>31</height>
+      <x>260</x>
+      <y>310</y>
+      <width>141</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
