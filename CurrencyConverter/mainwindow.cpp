@@ -30,9 +30,9 @@ void MainWindow::convertCurrency()
 
     const QMap<QString, double> rates = {
         {"USD", 1.0},
-        {"EUR", 0.85},
-        {"RUB", 75.0},
-        {"GBP", 0.75}
+        {"EUR", 0.93},
+        {"RUB", 90.0},
+        {"GBP", 0.80}
     };
 
     QString fromText = ui->comboBoxFrom->currentText();
@@ -51,7 +51,7 @@ void MainWindow::convertCurrency()
         return;
     }
 
-    double result = amount * rates[from] / rates[to];
+    double result = amount * rates[to] / rates[from];
 
     ui->labelResult->setText(QString::number(result, 'f', 2) + " " + toText);
 }
